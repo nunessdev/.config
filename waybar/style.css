@@ -1,0 +1,57 @@
+* {
+    font-family: "Hurmit Nerd Font Mono";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border: none;
+}
+
+#workspaces,
+#clock,
+#tray,
+#network,
+#cpu,
+#memory,
+#pulseaudio,
+#battery {
+    padding: 0 8px;
+}
+
+#workspaces button {
+    color: #6c7086;
+    background: transparent;
+    border: none;
+    padding: 0 5px;
+}
+
+#workspaces button.active {
+    color: #cdd6f4;
+}
+
+#clock {
+    color: #cdd6f4;
+}
+
+#network {
+    color: #89b4fa;
+}
+
+#cpu {
+    color: #a6e3a1;
+}
+
+#memory {
+    color: #f9e2af;
+}
+
+#pulseaudio {
+    color: #cba6f7;
+}
+
+#battery {
+    color: #f38ba8;
+}
