@@ -26,24 +26,32 @@
     },
 
     "network": {
-        "format-wifi": " {essid}",
-        "format-disconnected": "Offline"
+        "format-wifi": "{ifname} {signalStrength}%",
+	"format-ethernet": "{ifname}",
+        "format-disconnected": "Disconn",
+	"tooltip-format": "SSID: {essid}\nIP: {ipaddr}",
+   	"interval": 5,
+	"on-click": "kitty nmtui"
     },
 
     "cpu": {
-        "format": "CPU {}%"
+        "format": "cpu {}%"
     },
 
     "memory": {
-        "format": "RAM {}%"
+        "format": "ram {}%"
     },
 
     "backlight": {
-	"format": "Backlight {percent}%"
+	"format": "bl {percent}%",
+	"tooltip-format": "Backlight {percent}%",
+	"reverse-scrolling": true
     },
 
     "pulseaudio": {
-        "format": "Volume {volume}%"
+        "format": "vol {volume}%",
+	"reverse-scrolling": true,
+	"on-click": "pavucontrol"
     }
 }
 
