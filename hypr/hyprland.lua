@@ -80,7 +80,7 @@ hl.config({
 
         col = {
             --active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            active_border   = "rgb(cba6f7)",
+            active_border   = "rgb(59dffc)",
 	    inactive_border = "rgba(595959aa)",
         },
 
@@ -98,8 +98,8 @@ hl.config({
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        active_opacity   = 0.92,
+        inactive_opacity = 0.92,
 
         shadow = {
             enabled      = true,
@@ -120,6 +120,9 @@ hl.config({
         enabled = true,
     },
 })
+
+-- Blur behind the (semi-transparent) waybar
+hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })

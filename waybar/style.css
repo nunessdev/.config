@@ -2,56 +2,104 @@
     font-family: "Hurmit Nerd Font Mono";
     font-size: 14px;
     font-weight: bold;
-}
-
-window#waybar {
-    background: #1e1e2e;
-    color: #cdd6f4;
+    min-height: 0;
     border: none;
+    border-radius: 0;
 }
 
-#workspaces,
+/* matches hyprland: rounding = 10 */
+window#waybar {
+    background: rgba(48, 48, 48, 0.8);
+    color: #cdd6f4;
+    border-radius: 10px;
+}
+
+tooltip {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid #45475a;
+    border-radius: 6px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* shared module spacing + color */
 #clock,
 #tray,
 #network,
 #cpu,
 #memory,
 #pulseaudio,
+#backlight,
+#power-profiles-daemon,
 #battery {
-    padding: 0 8px;
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+/* workspaces */
+#workspaces {
+    margin: 0 4px;
 }
 
 #workspaces button {
-    color: #6c7086;
+    color: #9399b2;
     background: transparent;
-    border: none;
-    padding: 0 5px;
+    padding: 0 8px;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button.empty {
+    color: #6c7086;
+}
+
+/* reset the GTK theme's default hover highlight */
+#workspaces button:hover {
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #workspaces button.active {
     color: #cdd6f4;
+    border-bottom: 2px solid #59dffc;
 }
 
-#clock {
-    color: #cdd6f4;
+#workspaces button.urgent {
+    color: #ff2242;
 }
 
-#network {
-    color: #89b4fa;
+/* power profiles */
+#power-profiles-daemon.performance {
+    color: #faa567;
 }
 
-#cpu {
-    color: #a6e3a1;
+#power-profiles-daemon.balanced {
+    color: #59dffc;
 }
 
-#memory {
-    color: #f9e2af;
+#power-profiles-daemon.power-saver {
+    color: #4b99f8;
 }
 
-#pulseaudio {
-    color: #cba6f7;
+/* status colors, only when something needs attention */
+#network.disconnected {
+    color: #ff2242;
 }
 
-#battery {
-    color: #f38ba8;
+#pulseaudio.muted {
+    color: #ff2242;
+}
+
+#battery.charging {
+    color: #fee967;
+}
+
+#battery.warning:not(.charging) {
+    color: #faa567;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff2242;
 }

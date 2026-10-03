@@ -3,6 +3,10 @@
     "height": 35,
     "spacing": 4,
 
+    // matches hyprland gaps_out = 10 (top right bottom left)
+    // bottom is 0 because hyprland already adds gaps_out between the bar and windows
+    "margin": "10 10 0 10",
+
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -17,9 +21,19 @@
         "cpu",
         "memory",
         "pulseaudio",
-	"backlight",
+        "backlight",
+        "power-profiles-daemon",
         "battery"
     ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4]
+        }
+    },
 
     "clock": {
         "format": "{:%I:%M %p}"
@@ -27,11 +41,11 @@
 
     "network": {
         "format-wifi": "{ifname} {signalStrength}%",
-	"format-ethernet": "{ifname}",
+        "format-ethernet": "{ifname}",
         "format-disconnected": "Disconn",
-	"tooltip-format": "SSID: {essid}\nIP: {ipaddr}",
-   	"interval": 5,
-	"on-click": "kitty nmtui"
+        "tooltip-format": "SSID: {essid}\nIP: {ipaddr}",
+        "interval": 5,
+        "on-click": "kitty nmtui"
     },
 
     "cpu": {
@@ -43,15 +57,36 @@
     },
 
     "backlight": {
-	"format": "bl {percent}%",
-	"tooltip-format": "Backlight {percent}%",
-	"reverse-scrolling": true
+        "format": "bl {percent}%",
+        "tooltip-format": "Backlight {percent}%",
+        "reverse-scrolling": true
     },
 
     "pulseaudio": {
         "format": "vol {volume}%",
-	"reverse-scrolling": true,
-	"on-click": "pavucontrol"
+        "format-muted": "vol muted",
+        "reverse-scrolling": true,
+        "on-click": "pavucontrol"
+    },
+
+    // click cycles through the profiles
+    "power-profiles-daemon": {
+        "format": "pwr {icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "format-icons": {
+            "default": "?",
+            "performance": "perf",
+            "balanced": "bal",
+            "power-saver": "save"
+        }
+    },
+
+    "battery": {
+        "format": "bat {capacity}%",
+        "format-charging": "chg {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
     }
 }
-
